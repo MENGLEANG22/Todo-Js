@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="tick-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;
+700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/
+font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo JS</title>
+</head>
+<body>
+    <div class="full-container">
+        <div class="row">
+            <div class="col-30">
+                <div class="container">
+                    <div class="icon">
+                        <span><i class="fa-solid fa-sun"></i></span>
+                        <h1>Todo JS</h1>
+                    </div>
+                    <div class="welcome-text">
+                        <h4 id="greeting"></h4>
+                        <p>What Will add to our staffty tasks today?</p>
+                        <div>
+                            <label class="switch">
+                                <span class="tooltiptext">Switch Theme</span>
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                        <label for="title">Title</label>
+                        <input type="text" name="task" id="task" placeholder="What is the task for?" required>
+                        <small class="Trequired">Please input title!</small>
+                        <label for="priority">Priority</label>
+                        <select name="priority" id="priority" >
+                            <option disabled >Select Your Task Priority</option>
+                            <option value="normal" class="normal">Normal</option>
+                            <option value="urgent" class="urgent">Urgent</option>
+                            <option value="anytime" class="anytime">Anytime</option>
+                        </select>
+                        <label for="deadline">Deadline</label>
+                        <input type="date" name="" id="date" required>
+                        <small class="Drequired">Please select your deadline!</small>
+                        <label for="description">Description</label>
+                        <textarea name="description" id="description" cols="20" rows="6" placeholder="How many things will have to complete in which way..."></textarea>
+                        <div class="btn">
+                            <button type="reset" id="btnClear">Clear <i class="fa-solid fa-broom"></i></button>
+                            <button type="submit" id="btnAdd">Add <i class="fa-solid fa-plus"></i></button>
+                            <button type="update" id="btnUpdate">Update <i class="fa-solid fa-wrench"></i></button>
+                        </div>
+                </div>
+            </div>
+            <div class="col-70">
+                <div class="container2">
+                    <div class="box"> 
+                        <div class="searchOption">
+                            <input type="search" name="" id="mySearch" placeholder="Search...">
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="row">
+                            <div class="item">
+                                <table id="taskTable">
+                                    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footer">
+                        <p>Made with <b>💙</b> By MenGLeanG</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alertDel">
+        <h2>Confirm</h2> 
+        <p>Are you sure want to delete this task?</p><i class="fa-solid fa-triangle-exclamation warnMsg"></i>
+        <div class="alertBtn">
+            <button type="reset" id="btnNo">Cancel</button>
+            <button type="submit" id="btnYes">Yes Delete!</button>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
