@@ -23,6 +23,12 @@ var DarkMode = document.querySelector(".slider");
 var mySearch = document.getElementById("mySearch");
 var trs = document.getElementsByTagName('tr');
 
+
+// -----Dark Mode-----
+DarkMode.addEventListener("click",function(){
+  document.body.classList.toggle("dark-theme");
+})
+
 // ---- Greeting Message----
 let greeting;
 if (time >= 1 && time <12) {
@@ -43,6 +49,7 @@ document.getElementById('greeting').innerHTML = greeting;
 
 // Show Data when page is loaded
 document.onload = get_Item();
+
 function getData(){
   return localStorage.getItem("itemList") ?
    JSON.parse(localStorage.getItem("itemList")) : [];
@@ -90,7 +97,7 @@ function saveData(){
         trs[i].addEventListener('mouseout', function() {
           this.style.cssText = "background: var(--primary-color)";
         });
-      }
+      };
 
 
       // --------Edit Data----------
@@ -111,27 +118,46 @@ function saveData(){
       });
 
       // --------Delete Data---------
-      var btnDel = document.querySelectorAll(".btnDel");
-      btnDel.forEach((e , i)=>{
-        e.addEventListener("click",function(){
-          alertBox.style.display = "block"; 
-          body.style.opacity = "0.5";
-          btnYes.addEventListener("click",function(){
-            itemList.splice(i , 1);
-            saveData();
-            get_Item();
-            body.style.opacity = "1";
-          });
-        });
-      });
-      btnNo.addEventListener("click",function(){
-        body.style.opacity = "1";
-      })
 
-      PriorityColorStatus();
+      
+      var btnDel = document.querySelectorAll(".btnDel");
+
+btnDel.forEach((e, i) => {
+  e.addEventListener("click", function() {
+    alertBox.style.display = "block";
+    body.style.opacity = "0.5";
+
+    // Event listener for Yes button
+    function handleYesClick() {
+      itemList.splice(i, 1);
+      saveData();
+      get_Item();
+      alertBox.style.display = "none";
+      body.style.opacity = "1";
+      // Remove event listeners after use to avoid memory leaks
+      btnYes.removeEventListener("click", handleYesClick);
+      btnNo.removeEventListener("click", handleNoClick);
+    }
+
+    // Event listener for No button
+    function handleNoClick() {
+      alertBox.style.display = "none";
+      body.style.opacity = "1";
+      // Remove event listeners after use to avoid memory leaks
+      btnYes.removeEventListener("click", handleYesClick);
+      btnNo.removeEventListener("click", handleNoClick);
+    }
+
+    // Add event listeners to Yes and No buttons
+    btnYes.addEventListener("click", handleYesClick);
+    btnNo.addEventListener("click", handleNoClick);
+    
+  });
+});
+
+PriorityColorStatus();
     
 };
-  get_Item();
 
   function formValue(){
      let formValue =  {
@@ -218,6 +244,7 @@ function HideRequiredTxt(){
       saveData();
       btnAdd.style.display = "block";
       btnUpdate.style.display = "none";
+      btnClear.style.display = "none";
       clearData();
     }
    
@@ -227,7 +254,6 @@ function HideRequiredTxt(){
 btnClear.addEventListener("click",function(){
     clearData();
         btnClear.style.display = "none";
-    
   });
 // -------Pop up alert box when pressing delete icon------
 btnYes.addEventListener("click",function(){
@@ -250,10 +276,7 @@ btnNo.addEventListener("click",function(){
     var maxDate = year + '-' + month + '-' + day;
     document.getElementById('date').setAttribute('min', maxDate);
 });
-// -----Dark Mode-----
-DarkMode.addEventListener("click",function(){
-  document.body.classList.toggle("dark-theme");
-})
+
 
 // ------Search Option------
 mySearch.addEventListener("keyup",function(){
@@ -300,6 +323,6 @@ mySearch.addEventListener("keyup",function(){
     });
   
   }
-     
+  
 
 
