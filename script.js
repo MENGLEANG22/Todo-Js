@@ -10,6 +10,7 @@ var btnClear = document.getElementById('btnClear');
 var btnYes = document.getElementById("btnYes");
 var btnNo = document.getElementById("btnNo");
 var alertBox = document.querySelector(".alertDel");
+var overlay = document.querySelector(".overlay");
 var body = document.querySelector('.full-container');
 var i2;
 const itemList = getData();
@@ -125,7 +126,7 @@ function saveData(){
 btnDel.forEach((e, i) => {
   e.addEventListener("click", function() {
     alertBox.style.display = "block";
-    body.style.opacity = "0.5";
+    overlay.style.display = "block";
 
     // Event listener for Yes button
     function handleYesClick() {
@@ -133,7 +134,7 @@ btnDel.forEach((e, i) => {
       saveData();
       get_Item();
       alertBox.style.display = "none";
-      body.style.opacity = "1";
+      overlay.style.display = "none";
       // Remove event listeners after use to avoid memory leaks
       btnYes.removeEventListener("click", handleYesClick);
       btnNo.removeEventListener("click", handleNoClick);
@@ -142,7 +143,7 @@ btnDel.forEach((e, i) => {
     // Event listener for No button
     function handleNoClick() {
       alertBox.style.display = "none";
-      body.style.opacity = "1";
+      overlay.style.display = "none";
       // Remove event listeners after use to avoid memory leaks
       btnYes.removeEventListener("click", handleYesClick);
       btnNo.removeEventListener("click", handleNoClick);
