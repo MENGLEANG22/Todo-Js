@@ -36,7 +36,7 @@ html{
     --transparent: #4e4e4e6f;
 
     .searchOption input{
-        background-image: url('/img/outline_search_white_24dp.png');
+        background-image: url('searchWhite.png');
     }
 }
 .full-container{
@@ -284,7 +284,7 @@ button[type=update]{
     font-weight: 400;
     font-family: 'Poppins', sans-serif; 
     transition: .5s ease-in-out;
-    background-image: url('/img/outline_search_black_48dp.png');
+    background-image: url('searchBlack.png');
     background-position: left;
     background-repeat: no-repeat;
     background-size: 25px 25px;
