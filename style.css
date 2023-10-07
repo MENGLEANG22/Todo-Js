@@ -4,8 +4,8 @@
 }
 body{
     position: relative;
+    background: var(--primary-color);
 }
-
 *{
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -29,15 +29,14 @@ html{
     
 }
 .dark-theme{
-    .searchOption input{
-        background-image: url('searchWhite.png');
-    }
     --primary-color: #000;
     --secondary-color: #eee;
     --input-color: #111;
     --box-shadow: #888;
     --transparent: #4e4e4e6f;
-
+    .searchOption input{
+        background-image: url('searchWhite.png');
+    }
   
 }
 .full-container{
@@ -260,12 +259,12 @@ button[type=update]{
 }
 /* ------- right-container---------- */
 .box{
+    display: flex;
     position: relative;
     width: 100%;
     height: 10%;
     background: rgb(0,200,255);
     background: linear-gradient(270deg, #009879 0%, rgb(251 211 140 / 0%) 100%);
-    display: flex;
 }
 .searchOption{
     position: absolute;
@@ -274,7 +273,6 @@ button[type=update]{
     align-self: center;
     overflow: hidden;
     padding: 20px 20px 20px 0;
-    
 }
 
 .searchOption input{
@@ -308,7 +306,7 @@ button[type=update]{
 }
 .item-container{
     margin-top: 2%;
-    height: 80%;
+    height: 83%;
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 0;
@@ -420,12 +418,11 @@ table td:nth-child(2), td:nth-child(5){
 }
 .footer{
     display: flex;
-    align-self: center;
     align-items: center;
     justify-content: right;
-    width: 100%;
-    height: 6%;
+    height: 4%;
     background-color: var(--primary-color);
+
 }
 .footer p{
     color:gray;
@@ -639,7 +636,7 @@ table td:nth-child(2), td:nth-child(5){
         width: 40% ;
     }
 }
-/* Large devices (laptops/desktops, 1099px and up) */
+
 @media only screen and (max-width: 1099px) {
     .full-container{
         width: 100vw;
@@ -655,6 +652,7 @@ table td:nth-child(2), td:nth-child(5){
     }
     .col-30{
     flex-basis: 45%;
+    overflow: scroll;
    }
    .switch .tooltiptext{
     margin-left: -38px;
