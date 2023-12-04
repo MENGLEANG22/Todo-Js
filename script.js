@@ -189,7 +189,7 @@ PriorityColorStatus();
     clearData();
   });
 // ------ Show Btn-CLear when input task title-----
-task.addEventListener("keypress",function(){
+task.addEventListener("keypress", function(){
   btnClear.style.display = "block";
   Trequired.style.display = "none";
   task.style.border = "none";
